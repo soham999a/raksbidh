@@ -1,4 +1,17 @@
-import { Ambulance, BookOpen, Building2, Droplets, HeartPulse, Home, LifeBuoy, ListChecks, MapPinned, Phone, Stethoscope, Users } from "lucide-react";
+import {
+  Ambulance,
+  BookOpen,
+  Building2,
+  Droplets,
+  HeartPulse,
+  Home,
+  LifeBuoy,
+  ListChecks,
+  MapPinned,
+  Phone,
+  Stethoscope,
+  Users,
+} from "lucide-react";
 
 export const NAV = [
   { to: "/", label: "Home", icon: Home },

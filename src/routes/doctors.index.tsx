@@ -10,7 +10,11 @@ import { seo } from "@/lib/seo";
 import { useDB } from "@/lib/store";
 
 export const Route = createFileRoute("/doctors/")({
-  head: () => seo("Book a Doctor Online", "See doctors serving Bidhannagar, who is online now, their fees and free slots. Book an online consultation in minutes."),
+  head: () =>
+    seo(
+      "Book a Doctor Online",
+      "See doctors serving Bidhannagar, who is online now, their fees and free slots. Book an online consultation in minutes.",
+    ),
   component: Doctors,
 });
 
@@ -23,10 +27,16 @@ function Doctors() {
   const list = db.doctors.filter((d) => (!spec || d.specialty === spec) && (!now || d.online));
   return (
     <>
-      <PageHeader title={t("Online Doctor Assistance")} subtitle={t("Book a video or phone consultation with a local doctor.")} icon={<Stethoscope />}>
+      <PageHeader
+        title={t("Online Doctor Assistance")}
+        subtitle={t("Book a video or phone consultation with a local doctor.")}
+        icon={<Stethoscope />}
+      >
         <div className="surface space-y-3 p-3">
           <div className="flex flex-wrap gap-2">
-            <Chip active={spec === ""} onClick={() => setSpec("")}>{t("All specialties")}</Chip>
+            <Chip active={spec === ""} onClick={() => setSpec("")}>
+              {t("All specialties")}
+            </Chip>
             {specialties.map((s) => (
               <Chip key={s} active={spec === s} onClick={() => setSpec(spec === s ? "" : s)}>
                 {t(s)}
@@ -40,7 +50,10 @@ function Doctors() {
       </PageHeader>
       <section className="container-page py-8">
         {list.length === 0 ? (
-          <EmptyState title="No doctors match these filters" hint="Try another specialty or turn off Available now." />
+          <EmptyState
+            title="No doctors match these filters"
+            hint="Try another specialty or turn off Available now."
+          />
         ) : (
           <div className="grid gap-4 md:grid-cols-2">
             {list.map((d) => (
@@ -49,7 +62,11 @@ function Doctors() {
                 <div className="min-w-0 flex-1 space-y-1.5">
                   <div className="flex flex-wrap items-center gap-2">
                     <h2 className="text-xl font-bold">{d.name}</h2>
-                    {d.online ? <Badge variant="success">● {t("Online now")}</Badge> : <Badge variant="muted">{t("Offline")}</Badge>}
+                    {d.online ? (
+                      <Badge variant="success">● {t("Online now")}</Badge>
+                    ) : (
+                      <Badge variant="muted">{t("Offline")}</Badge>
+                    )}
                   </div>
                   <p className="font-semibold text-primary-strong">{t(d.specialty)}</p>
                   <p className="text-sm text-muted-foreground">

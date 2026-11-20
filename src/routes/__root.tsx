@@ -8,14 +8,13 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { Toaster } from "@/components/ui/sonner";
 import { FloatingActions } from "@/components/site/FloatingActions";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -42,9 +41,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -83,10 +79,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Praner Pashe | Community health help for Bidhannagar" },
-      { name: "description", content: "Demo of Praner Pashe: hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar, one tap away." },
+      {
+        name: "description",
+        content:
+          "Demo of Praner Pashe: hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar, one tap away.",
+      },
       { name: "theme-color", content: "#FF9933" },
       { property: "og:title", content: "Praner Pashe | Community health help for Bidhannagar" },
-      { property: "og:description", content: "Hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar, one tap away." },
+      {
+        property: "og:description",
+        content:
+          "Hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar, one tap away.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

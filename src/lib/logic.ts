@@ -46,9 +46,15 @@ export function nextDays(n: number, from = new Date()) {
   return Array.from({ length: n }, (_, i) => addDays(from, i));
 }
 
-export function isBooked(appointments: Appointment[], doctorId: string, date: string, time: string) {
+export function isBooked(
+  appointments: Appointment[],
+  doctorId: string,
+  date: string,
+  time: string,
+) {
   return appointments.some(
-    (a) => a.doctorId === doctorId && a.date === date && a.time === time && a.status !== "Cancelled",
+    (a) =>
+      a.doctorId === doctorId && a.date === date && a.time === time && a.status !== "Cancelled",
   );
 }
 
@@ -63,7 +69,9 @@ export function slotsFor(doctor: Doctor, date: Date, appointments: Appointment[]
 
 /** Donors who can be notified for a blood request: same group, willing, consented, eligible. */
 export function matchingDonors(donors: Donor[], group: BloodGroup, today = new Date()) {
-  return donors.filter((d) => d.group === group && d.willing && d.consent && isEligible(d.lastDonation, today));
+  return donors.filter(
+    (d) => d.group === group && d.willing && d.consent && isEligible(d.lastDonation, today),
+  );
 }
 
 export function uid(prefix = "") {

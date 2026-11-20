@@ -39,7 +39,15 @@ export function PageHeader({
   );
 }
 
-export function EmptyState({ title, hint, action }: { title: string; hint?: string; action?: ReactNode }) {
+export function EmptyState({
+  title,
+  hint,
+  action,
+}: {
+  title: string;
+  hint?: string;
+  action?: ReactNode;
+}) {
   const { t } = useT();
   return (
     <div className="surface flex flex-col items-center gap-3 px-6 py-12 text-center">
@@ -53,21 +61,46 @@ export function EmptyState({ title, hint, action }: { title: string; hint?: stri
   );
 }
 
-export function BloodChip({ group, active, onClick }: { group: string; active?: boolean; onClick?: () => void }) {
+export function BloodChip({
+  group,
+  active,
+  onClick,
+}: {
+  group: string;
+  active?: boolean;
+  onClick?: () => void;
+}) {
   const cls = cn(
     "inline-flex min-w-12 items-center justify-center rounded-full border px-2.5 py-1 text-sm font-bold",
-    active ? "border-emergency bg-emergency text-emergency-foreground" : "border-emergency/30 bg-emergency-soft text-emergency",
+    active
+      ? "border-emergency bg-emergency text-emergency-foreground"
+      : "border-emergency/30 bg-emergency-soft text-emergency",
   );
   if (onClick)
     return (
-      <button type="button" onClick={onClick} className={cn(cls, "min-h-10 cursor-pointer")} aria-pressed={active}>
+      <button
+        type="button"
+        onClick={onClick}
+        className={cn(cls, "min-h-10 cursor-pointer")}
+        aria-pressed={active}
+      >
         {group}
       </button>
     );
   return <span className={cls}>{group}</span>;
 }
 
-export function CallButton({ phone, label = "Call", size = "default", className }: { phone: string; label?: string; size?: "default" | "lg" | "xl" | "sm"; className?: string }) {
+export function CallButton({
+  phone,
+  label = "Call",
+  size = "default",
+  className,
+}: {
+  phone: string;
+  label?: string;
+  size?: "default" | "lg" | "xl" | "sm";
+  className?: string;
+}) {
   const { t } = useT();
   return (
     <Button asChild variant="success" size={size} className={className}>
@@ -78,7 +111,17 @@ export function CallButton({ phone, label = "Call", size = "default", className 
   );
 }
 
-export function WhatsAppButton({ phone, text, size = "default", className }: { phone: string; text?: string; size?: "default" | "lg" | "xl" | "sm"; className?: string }) {
+export function WhatsAppButton({
+  phone,
+  text,
+  size = "default",
+  className,
+}: {
+  phone: string;
+  text?: string;
+  size?: "default" | "lg" | "xl" | "sm";
+  className?: string;
+}) {
   const { t } = useT();
   return (
     <Button asChild variant="outline" size={size} className={className}>
@@ -89,7 +132,17 @@ export function WhatsAppButton({ phone, text, size = "default", className }: { p
   );
 }
 
-export function Field({ label, error, children, hint }: { label: string; error?: string; children: ReactNode; hint?: string }) {
+export function Field({
+  label,
+  error,
+  children,
+  hint,
+}: {
+  label: string;
+  error?: string | undefined;
+  children: ReactNode;
+  hint?: string | undefined;
+}) {
   const { t } = useT();
   return (
     <label className="block space-y-1.5">
@@ -101,7 +154,11 @@ export function Field({ label, error, children, hint }: { label: string; error?:
   );
 }
 
-export function NativeSelect({ className, children, ...props }: SelectHTMLAttributes<HTMLSelectElement>) {
+export function NativeSelect({
+  className,
+  children,
+  ...props
+}: SelectHTMLAttributes<HTMLSelectElement>) {
   return (
     <select className={cn("field-control cursor-pointer", className)} {...props}>
       {children}
@@ -109,11 +166,26 @@ export function NativeSelect({ className, children, ...props }: SelectHTMLAttrib
   );
 }
 
-export function WardSelect({ value, onChange, allLabel = "All wards", className }: { value: string; onChange: (v: string) => void; allLabel?: string | null; className?: string }) {
+export function WardSelect({
+  value,
+  onChange,
+  allLabel = "All wards",
+  className,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  allLabel?: string | null;
+  className?: string;
+}) {
   const db = useDB();
   const { t } = useT();
   return (
-    <NativeSelect value={value} onChange={(e) => onChange(e.target.value)} className={className} aria-label={t("Ward")}>
+    <NativeSelect
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className={className}
+      aria-label={t("Ward")}
+    >
       {allLabel !== null && <option value="">{t(allLabel)}</option>}
       {db.wards.map((w) => (
         <option key={w.id} value={String(w.number)}>
@@ -144,7 +216,10 @@ export function Verified({ date, label = "Last verified" }: { date: string; labe
 export function StatusBadge({ status }: { status: string }) {
   const { t } = useT();
   const v =
-    status === "Confirmed" || status === "Resolved" || status === "Completed" || status === "Published"
+    status === "Confirmed" ||
+    status === "Resolved" ||
+    status === "Completed" ||
+    status === "Published"
       ? "success"
       : status === "Cancelled"
         ? "danger"
@@ -156,7 +231,15 @@ export function StatusBadge({ status }: { status: string }) {
   return <Badge variant={v}>{t(status)}</Badge>;
 }
 
-export function Chip({ children, active, onClick }: { children: ReactNode; active?: boolean; onClick?: () => void }) {
+export function Chip({
+  children,
+  active,
+  onClick,
+}: {
+  children: ReactNode;
+  active?: boolean;
+  onClick?: () => void;
+}) {
   return (
     <button
       type="button"
@@ -164,7 +247,9 @@ export function Chip({ children, active, onClick }: { children: ReactNode; activ
       aria-pressed={active}
       className={cn(
         "inline-flex min-h-10 cursor-pointer items-center gap-1.5 rounded-full border px-4 text-sm font-semibold transition-colors",
-        active ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card hover:bg-primary-soft",
+        active
+          ? "border-primary bg-primary text-primary-foreground"
+          : "border-border bg-card hover:bg-primary-soft",
       )}
     >
       {children}
@@ -180,7 +265,13 @@ export function Avatar({ name, className }: { name: string; className?: string }
     .slice(0, 2)
     .join("");
   return (
-    <div className={cn("flex size-16 shrink-0 items-center justify-center rounded-2xl bg-primary-soft font-display text-xl font-bold text-primary-strong", className)} aria-hidden>
+    <div
+      className={cn(
+        "flex size-16 shrink-0 items-center justify-center rounded-2xl bg-primary-soft font-display text-xl font-bold text-primary-strong",
+        className,
+      )}
+      aria-hidden
+    >
       {initials}
     </div>
   );

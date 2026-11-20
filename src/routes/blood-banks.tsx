@@ -3,7 +3,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { Droplets, MapPin } from "lucide-react";
 import { ReportButton } from "@/components/site/ReportDialog";
-import { BloodChip, CallButton, EmptyState, PageHeader, Verified, WardSelect } from "@/components/site/ui-bits";
+import {
+  BloodChip,
+  CallButton,
+  EmptyState,
+  PageHeader,
+  Verified,
+  WardSelect,
+} from "@/components/site/ui-bits";
 import { useT } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { useDB } from "@/lib/store";
@@ -13,7 +20,11 @@ const search = z.object({ focus: z.string().optional().catch(undefined) });
 
 export const Route = createFileRoute("/blood-banks")({
   validateSearch: search,
-  head: () => seo("Blood Banks", "Find Bidhannagar blood banks by blood group and ward, see which groups are available now, and call in one tap."),
+  head: () =>
+    seo(
+      "Blood Banks",
+      "Find Bidhannagar blood banks by blood group and ward, see which groups are available now, and call in one tap.",
+    ),
   component: BloodBanks,
 });
 
@@ -29,13 +40,20 @@ function BloodBanks() {
   }, [s.focus]);
 
   const list = useMemo(
-    () => db.bloodBanks.filter((b) => (!group || b.groups.includes(group as never)) && (!ward || String(b.ward) === ward)),
+    () =>
+      db.bloodBanks.filter(
+        (b) => (!group || b.groups.includes(group as never)) && (!ward || String(b.ward) === ward),
+      ),
     [db.bloodBanks, group, ward],
   );
 
   return (
     <>
-      <PageHeader title={t("Blood Bank Directory")} subtitle={t("Tap a blood group to see which blood banks have it right now.")} icon={<Droplets />}>
+      <PageHeader
+        title={t("Blood Bank Directory")}
+        subtitle={t("Tap a blood group to see which blood banks have it right now.")}
+        icon={<Droplets />}
+      >
         <div className="surface space-y-3 p-3">
           <div ref={ref} className="flex flex-wrap gap-2">
             <button
@@ -46,7 +64,12 @@ function BloodBanks() {
               {t("All groups")}
             </button>
             {BLOOD_GROUPS.map((g) => (
-              <BloodChip key={g} group={g} active={group === g} onClick={() => setGroup(group === g ? "" : g)} />
+              <BloodChip
+                key={g}
+                group={g}
+                active={group === g}
+                onClick={() => setGroup(group === g ? "" : g)}
+              />
             ))}
           </div>
           <WardSelect value={ward} onChange={setWard} className="md:max-w-xs" />
@@ -57,7 +80,10 @@ function BloodBanks() {
           {list.length} {t("results")}
         </p>
         {list.length === 0 ? (
-          <EmptyState title="No blood bank has this group in this ward" hint="Try All wards, or post a blood request so donors are notified." />
+          <EmptyState
+            title="No blood bank has this group in this ward"
+            hint="Try All wards, or post a blood request so donors are notified."
+          />
         ) : (
           <div className="grid gap-4 md:grid-cols-2">
             {list.map((b) => (
@@ -69,9 +95,15 @@ function BloodBanks() {
                 <p className="font-semibold">{b.contactPerson}</p>
                 <p className="font-mono text-lg">{b.phone}</p>
                 <div>
-                  <p className="mb-2 text-sm font-semibold text-muted-foreground">{t("Available now")}</p>
+                  <p className="mb-2 text-sm font-semibold text-muted-foreground">
+                    {t("Available now")}
+                  </p>
                   <div className="flex flex-wrap gap-1.5">
-                    {b.groups.length === 0 ? <span className="text-sm text-muted-foreground">{t("None listed")}</span> : b.groups.map((g) => <BloodChip key={g} group={g} active={g === group} />)}
+                    {b.groups.length === 0 ? (
+                      <span className="text-sm text-muted-foreground">{t("None listed")}</span>
+                    ) : (
+                      b.groups.map((g) => <BloodChip key={g} group={g} active={g === group} />)
+                    )}
                   </div>
                 </div>
                 <Verified date={b.lastVerified} label="Last updated" />

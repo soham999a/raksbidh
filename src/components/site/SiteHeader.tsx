@@ -11,14 +11,21 @@ import { NAV } from "./nav";
 export function LangToggle() {
   const { lang } = useT();
   return (
-    <div className="flex rounded-full border bg-card p-0.5 text-sm font-semibold" role="group" aria-label="Language">
+    <div
+      className="flex rounded-full border bg-card p-0.5 text-sm font-semibold"
+      role="group"
+      aria-label="Language"
+    >
       {(["en", "bn"] as const).map((l) => (
         <button
           key={l}
           type="button"
           onClick={() => setLang(l)}
           aria-pressed={lang === l}
-          className={cn("min-h-9 cursor-pointer rounded-full px-3", lang === l ? "bg-primary text-primary-foreground" : "text-muted-foreground")}
+          className={cn(
+            "min-h-9 cursor-pointer rounded-full px-3",
+            lang === l ? "bg-primary text-primary-foreground" : "text-muted-foreground",
+          )}
         >
           {l === "en" ? "EN" : "বাংলা"}
         </button>
@@ -45,12 +52,19 @@ export function Logo() {
 export function SiteHeader() {
   const { t } = useT();
   const [open, setOpen] = useState(false);
-  const top = NAV.filter((n) => ["/hospitals", "/blood-banks", "/ambulances", "/doctors", "/donors", "/blog", "/helpline"].includes(n.to));
+  const top = NAV.filter((n) =>
+    [
+      "/hospitals",
+      "/blood-banks",
+      "/ambulances",
+      "/doctors",
+      "/donors",
+      "/blog",
+      "/helpline",
+    ].includes(n.to),
+  );
   return (
     <>
-      <div className="stripe-demo text-center text-xs font-bold tracking-widest text-ink-foreground">
-        <span className="inline-block bg-ink px-3 py-1">{t("DEMO MODE")} · {t("All data is dummy data")}</span>
-      </div>
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
         <div className="container-page flex h-16 items-center gap-3">
           <Logo />
@@ -68,7 +82,12 @@ export function SiteHeader() {
           </nav>
           <div className="ml-auto flex items-center gap-2">
             <LangToggle />
-            <Button variant="outline" size="icon" onClick={() => setOpen(true)} aria-label={t("Menu")}>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setOpen(true)}
+              aria-label={t("Menu")}
+            >
               <Menu />
             </Button>
           </div>
@@ -93,10 +112,18 @@ export function SiteHeader() {
               </Link>
             ))}
             <div className="my-2 border-t" />
-            <Link to="/doctor-panel" onClick={() => setOpen(false)} className="flex min-h-12 items-center gap-3 rounded-lg px-3 font-semibold hover:bg-primary-soft">
+            <Link
+              to="/doctor-panel"
+              onClick={() => setOpen(false)}
+              className="flex min-h-12 items-center gap-3 rounded-lg px-3 font-semibold hover:bg-primary-soft"
+            >
               <Stethoscope className="size-5 text-info" /> {t("Doctor Panel")}
             </Link>
-            <Link to="/admin" onClick={() => setOpen(false)} className="flex min-h-12 items-center gap-3 rounded-lg px-3 font-semibold hover:bg-primary-soft">
+            <Link
+              to="/admin"
+              onClick={() => setOpen(false)}
+              className="flex min-h-12 items-center gap-3 rounded-lg px-3 font-semibold hover:bg-primary-soft"
+            >
               <LayoutDashboard className="size-5 text-info" /> {t("Admin Dashboard")}
             </Link>
           </nav>

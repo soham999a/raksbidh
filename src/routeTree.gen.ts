@@ -10,16 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AmbulancesRouteImport } from './routes/ambulances'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BloodBanksRouteImport } from './routes/blood-banks'
 import { Route as BloodRequestsRouteImport } from './routes/blood-requests'
 import { Route as DeleteMyDataRouteImport } from './routes/delete-my-data'
+import { Route as DoctorPanelRouteImport } from './routes/doctor-panel'
 import { Route as DonorRegisterRouteImport } from './routes/donor-register'
 import { Route as DonorsRouteImport } from './routes/donors'
 import { Route as HelplineRouteImport } from './routes/helpline'
 import { Route as HospitalsRouteImport } from './routes/hospitals'
+import { Route as KeyPersonsRouteImport } from './routes/key-persons'
 import { Route as MyBookingRouteImport } from './routes/my-booking'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WardStatsRouteImport } from './routes/ward-stats'
+import { Route as BlogIdRouteImport } from './routes/blog.$id'
 import { Route as DoctorsIndexRouteImport } from './routes/doctors.index'
 import { Route as DoctorsIdRouteImport } from './routes/doctors.$id'
 
@@ -28,9 +35,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AmbulancesRoute = AmbulancesRouteImport.update({
   id: '/ambulances',
   path: '/ambulances',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BloodBanksRoute = BloodBanksRouteImport.update({
@@ -46,6 +63,11 @@ const BloodRequestsRoute = BloodRequestsRouteImport.update({
 const DeleteMyDataRoute = DeleteMyDataRouteImport.update({
   id: '/delete-my-data',
   path: '/delete-my-data',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoctorPanelRoute = DoctorPanelRouteImport.update({
+  id: '/doctor-panel',
+  path: '/doctor-panel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DonorRegisterRoute = DonorRegisterRouteImport.update({
@@ -68,15 +90,35 @@ const HospitalsRoute = HospitalsRouteImport.update({
   path: '/hospitals',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KeyPersonsRoute = KeyPersonsRouteImport.update({
+  id: '/key-persons',
+  path: '/key-persons',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MyBookingRoute = MyBookingRouteImport.update({
   id: '/my-booking',
   path: '/my-booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WardStatsRoute = WardStatsRouteImport.update({
   id: '/ward-stats',
   path: '/ward-stats',
   getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIdRoute = BlogIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => BlogRoute,
 } as any)
 const DoctorsIndexRoute = DoctorsIndexRouteImport.update({
   id: '/doctors/',
@@ -91,47 +133,68 @@ const DoctorsIdRoute = DoctorsIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/ambulances': typeof AmbulancesRoute
+  '/blog': typeof BlogRouteWithChildren
   '/blood-banks': typeof BloodBanksRoute
   '/blood-requests': typeof BloodRequestsRoute
   '/delete-my-data': typeof DeleteMyDataRoute
+  '/doctor-panel': typeof DoctorPanelRoute
   '/donor-register': typeof DonorRegisterRoute
   '/donors': typeof DonorsRoute
   '/helpline': typeof HelplineRoute
   '/hospitals': typeof HospitalsRoute
+  '/key-persons': typeof KeyPersonsRoute
   '/my-booking': typeof MyBookingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/ward-stats': typeof WardStatsRoute
+  '/blog/$id': typeof BlogIdRoute
   '/doctors/$id': typeof DoctorsIdRoute
   '/doctors/': typeof DoctorsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/ambulances': typeof AmbulancesRoute
+  '/blog': typeof BlogRouteWithChildren
   '/blood-banks': typeof BloodBanksRoute
   '/blood-requests': typeof BloodRequestsRoute
   '/delete-my-data': typeof DeleteMyDataRoute
+  '/doctor-panel': typeof DoctorPanelRoute
   '/donor-register': typeof DonorRegisterRoute
   '/donors': typeof DonorsRoute
   '/helpline': typeof HelplineRoute
   '/hospitals': typeof HospitalsRoute
+  '/key-persons': typeof KeyPersonsRoute
   '/my-booking': typeof MyBookingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/ward-stats': typeof WardStatsRoute
+  '/blog/$id': typeof BlogIdRoute
   '/doctors/$id': typeof DoctorsIdRoute
   '/doctors': typeof DoctorsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/ambulances': typeof AmbulancesRoute
+  '/blog': typeof BlogRouteWithChildren
   '/blood-banks': typeof BloodBanksRoute
   '/blood-requests': typeof BloodRequestsRoute
   '/delete-my-data': typeof DeleteMyDataRoute
+  '/doctor-panel': typeof DoctorPanelRoute
   '/donor-register': typeof DonorRegisterRoute
   '/donors': typeof DonorsRoute
   '/helpline': typeof HelplineRoute
   '/hospitals': typeof HospitalsRoute
+  '/key-persons': typeof KeyPersonsRoute
   '/my-booking': typeof MyBookingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/ward-stats': typeof WardStatsRoute
+  '/blog/$id': typeof BlogIdRoute
   '/doctors/$id': typeof DoctorsIdRoute
   '/doctors/': typeof DoctorsIndexRoute
 }
@@ -139,61 +202,88 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/ambulances'
+    | '/blog'
     | '/blood-banks'
     | '/blood-requests'
     | '/delete-my-data'
+    | '/doctor-panel'
     | '/donor-register'
     | '/donors'
     | '/helpline'
     | '/hospitals'
+    | '/key-persons'
     | '/my-booking'
+    | '/privacy'
+    | '/terms'
     | '/ward-stats'
+    | '/blog/$id'
     | '/doctors/$id'
     | '/doctors/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/ambulances'
+    | '/blog'
     | '/blood-banks'
     | '/blood-requests'
     | '/delete-my-data'
+    | '/doctor-panel'
     | '/donor-register'
     | '/donors'
     | '/helpline'
     | '/hospitals'
+    | '/key-persons'
     | '/my-booking'
+    | '/privacy'
+    | '/terms'
     | '/ward-stats'
+    | '/blog/$id'
     | '/doctors/$id'
     | '/doctors'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/ambulances'
+    | '/blog'
     | '/blood-banks'
     | '/blood-requests'
     | '/delete-my-data'
+    | '/doctor-panel'
     | '/donor-register'
     | '/donors'
     | '/helpline'
     | '/hospitals'
+    | '/key-persons'
     | '/my-booking'
+    | '/privacy'
+    | '/terms'
     | '/ward-stats'
+    | '/blog/$id'
     | '/doctors/$id'
     | '/doctors/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   AmbulancesRoute: typeof AmbulancesRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BloodBanksRoute: typeof BloodBanksRoute
   BloodRequestsRoute: typeof BloodRequestsRoute
   DeleteMyDataRoute: typeof DeleteMyDataRoute
+  DoctorPanelRoute: typeof DoctorPanelRoute
   DonorRegisterRoute: typeof DonorRegisterRoute
   DonorsRoute: typeof DonorsRoute
   HelplineRoute: typeof HelplineRoute
   HospitalsRoute: typeof HospitalsRoute
+  KeyPersonsRoute: typeof KeyPersonsRoute
   MyBookingRoute: typeof MyBookingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   WardStatsRoute: typeof WardStatsRoute
   DoctorsIdRoute: typeof DoctorsIdRoute
   DoctorsIndexRoute: typeof DoctorsIndexRoute
@@ -208,11 +298,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ambulances': {
       id: '/ambulances'
       path: '/ambulances'
       fullPath: '/ambulances'
       preLoaderRoute: typeof AmbulancesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blood-banks': {
@@ -234,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/delete-my-data'
       fullPath: '/delete-my-data'
       preLoaderRoute: typeof DeleteMyDataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doctor-panel': {
+      id: '/doctor-panel'
+      path: '/doctor-panel'
+      fullPath: '/doctor-panel'
+      preLoaderRoute: typeof DoctorPanelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/donor-register': {
@@ -264,11 +375,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HospitalsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/key-persons': {
+      id: '/key-persons'
+      path: '/key-persons'
+      fullPath: '/key-persons'
+      preLoaderRoute: typeof KeyPersonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/my-booking': {
       id: '/my-booking'
       path: '/my-booking'
       fullPath: '/my-booking'
       preLoaderRoute: typeof MyBookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ward-stats': {
@@ -277,6 +409,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/ward-stats'
       preLoaderRoute: typeof WardStatsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/blog/$id': {
+      id: '/blog/$id'
+      path: '/$id'
+      fullPath: '/blog/$id'
+      preLoaderRoute: typeof BlogIdRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/doctors/': {
       id: '/doctors/'
@@ -295,17 +434,33 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogIdRoute: typeof BlogIdRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogIdRoute: BlogIdRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   AmbulancesRoute: AmbulancesRoute,
+  BlogRoute: BlogRouteWithChildren,
   BloodBanksRoute: BloodBanksRoute,
   BloodRequestsRoute: BloodRequestsRoute,
   DeleteMyDataRoute: DeleteMyDataRoute,
+  DoctorPanelRoute: DoctorPanelRoute,
   DonorRegisterRoute: DonorRegisterRoute,
   DonorsRoute: DonorsRoute,
   HelplineRoute: HelplineRoute,
   HospitalsRoute: HospitalsRoute,
+  KeyPersonsRoute: KeyPersonsRoute,
   MyBookingRoute: MyBookingRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   WardStatsRoute: WardStatsRoute,
   DoctorsIdRoute: DoctorsIdRoute,
   DoctorsIndexRoute: DoctorsIndexRoute,

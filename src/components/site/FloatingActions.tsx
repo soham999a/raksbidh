@@ -15,12 +15,22 @@ export function FloatingActions() {
     <>
       {/* Sticky emergency bar on mobile */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 p-3 backdrop-blur md:hidden">
-        <Button variant="emergency" size="xl" className="pulse-ring w-full" onClick={() => setOpen(true)}>
+        <Button
+          variant="emergency"
+          size="xl"
+          className="pulse-ring w-full"
+          onClick={() => setOpen(true)}
+        >
           <Siren className="!size-6" /> {t("Emergency")}
         </Button>
       </div>
       {/* Desktop emergency button */}
-      <Button variant="emergency" size="lg" className="pulse-ring fixed bottom-6 left-6 z-40 hidden rounded-full md:inline-flex" onClick={() => setOpen(true)}>
+      <Button
+        variant="emergency"
+        size="lg"
+        className="pulse-ring fixed bottom-6 left-6 z-40 hidden rounded-full md:inline-flex"
+        onClick={() => setOpen(true)}
+      >
         <Siren /> {t("Emergency")}
       </Button>
       {/* Floating helpline button on every page */}

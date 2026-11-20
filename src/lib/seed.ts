@@ -29,14 +29,63 @@ export function buildSeed(now = new Date()): DB {
   }));
 
   const hospitals = [
-    ["Bidhannagar Community Hospital (Demo)", "Dr. Arjun Basak", "Medical Superintendent", 3, true, "CF Block, Salt Lake Sector I"],
-    ["Salt Lake City Care Hospital (Demo)", "Mrs. Poulami Sarkar", "Front Desk Manager", 7, true, "BD Block, Sector I"],
-    ["Sector V Multispeciality Clinic (Demo)", "Mr. Debasish Ghosh", "Administrator", 12, false, "EP Block, Sector V"],
-    ["Baguiati General Hospital (Demo)", "Dr. Mitali Roy", "Deputy Superintendent", 21, true, "VIP Road, Baguiati"],
+    [
+      "Bidhannagar Community Hospital (Demo)",
+      "Dr. Arjun Basak",
+      "Medical Superintendent",
+      3,
+      true,
+      "CF Block, Salt Lake Sector I",
+    ],
+    [
+      "Salt Lake City Care Hospital (Demo)",
+      "Mrs. Poulami Sarkar",
+      "Front Desk Manager",
+      7,
+      true,
+      "BD Block, Sector I",
+    ],
+    [
+      "Sector V Multispeciality Clinic (Demo)",
+      "Mr. Debasish Ghosh",
+      "Administrator",
+      12,
+      false,
+      "EP Block, Sector V",
+    ],
+    [
+      "Baguiati General Hospital (Demo)",
+      "Dr. Mitali Roy",
+      "Deputy Superintendent",
+      21,
+      true,
+      "VIP Road, Baguiati",
+    ],
     ["Kestopur Nursing Home (Demo)", "Mr. Sourav Dey", "Manager", 18, false, "Kestopur Main Road"],
-    ["Rajarhat Health Centre (Demo)", "Dr. Kaushik Pal", "Medical Officer", 33, true, "Gopalpur, Rajarhat"],
-    ["Duttabad Maternity Home (Demo)", "Sr. Rina Mondal", "Nursing In-charge", 9, false, "Duttabad Road"],
-    ["Teghoria Emergency Care (Demo)", "Dr. Ayan Chatterjee", "Emergency Head", 27, true, "Teghoria More"],
+    [
+      "Rajarhat Health Centre (Demo)",
+      "Dr. Kaushik Pal",
+      "Medical Officer",
+      33,
+      true,
+      "Gopalpur, Rajarhat",
+    ],
+    [
+      "Duttabad Maternity Home (Demo)",
+      "Sr. Rina Mondal",
+      "Nursing In-charge",
+      9,
+      false,
+      "Duttabad Road",
+    ],
+    [
+      "Teghoria Emergency Care (Demo)",
+      "Dr. Ayan Chatterjee",
+      "Emergency Head",
+      27,
+      true,
+      "Teghoria More",
+    ],
   ].map(([name, contactPerson, designation, ward, emergency, address], i) => ({
     id: `h${i + 1}`,
     name: name as string,
@@ -50,7 +99,12 @@ export function buildSeed(now = new Date()): DB {
   }));
 
   const bloodBanks = [
-    ["Bidhannagar Central Blood Bank (Demo)", "Mr. Pritam Saha", 4, ["A+", "B+", "O+", "O-", "AB+"]],
+    [
+      "Bidhannagar Central Blood Bank (Demo)",
+      "Mr. Pritam Saha",
+      4,
+      ["A+", "B+", "O+", "O-", "AB+"],
+    ],
     ["Salt Lake Voluntary Blood Bank (Demo)", "Ms. Tanushree Das", 8, ["A+", "A-", "B+", "O+"]],
     ["Baguiati Blood Centre (Demo)", "Mr. Rahul Biswas", 22, ["B+", "B-", "O+", "AB-"]],
     ["Rajarhat Blood Storage Unit (Demo)", "Dr. Sneha Kar", 34, ["A+", "O+", "O-"]],
@@ -89,40 +143,196 @@ export function buildSeed(now = new Date()): DB {
   const morning = ["10:00", "10:30", "11:00", "11:30", "12:00"];
   const evening = ["17:00", "17:30", "18:00", "18:30", "19:00"];
   const doctors: Doctor[] = [
-    ["Dr. Ritika Sen", "doctor@demo.com", "General Physician", "MBBS, MD (Medicine)", 12, 400, "Bengali, English, Hindi", true, [1, 2, 3, 4, 5, 6], [...morning, ...evening]],
-    ["Dr. Sayan Mukherjee", "sayan@demo.local", "General Physician", "MBBS", 6, 300, "Bengali, Hindi", false, [0, 1, 3, 5], evening],
-    ["Dr. Moumita Ghosh", "moumita@demo.local", "Pediatrics", "MBBS, DCH", 10, 500, "Bengali, English", true, [1, 2, 4, 6], morning],
-    ["Dr. Abhishek Dutta", "abhishek@demo.local", "Pediatrics", "MBBS, MD (Pediatrics)", 15, 600, "Bengali, English", false, [2, 3, 5], evening],
-    ["Dr. Payel Banerjee", "payel@demo.local", "Gynecology", "MBBS, MS (O&G)", 14, 700, "Bengali, English, Hindi", true, [1, 3, 5], morning],
-    ["Dr. Shreya Halder", "shreya@demo.local", "Gynecology", "MBBS, DGO", 8, 500, "Bengali", false, [2, 4, 6], evening],
-    ["Dr. Indranil Saha", "indranil@demo.local", "Cardiology", "MBBS, MD, DM (Cardiology)", 20, 1000, "Bengali, English", true, [1, 4], morning],
-    ["Dr. Nabanita Roy", "nabanita@demo.local", "Dermatology", "MBBS, MD (Dermatology)", 9, 600, "Bengali, English, Hindi", false, [3, 6], [...morning.slice(0, 3), ...evening.slice(0, 3)]],
-    ["Dr. Rajib Paul", "rajib@demo.local", "Orthopedics", "MBBS, MS (Ortho)", 18, 800, "Bengali, Hindi", true, [1, 2, 5], evening],
-    ["Dr. Sohini Kar", "sohini@demo.local", "Dermatology", "MBBS, DVD", 5, 400, "Bengali, English", false, [0, 2, 4], morning],
-  ].map(([name, email, specialty, qualification, experience, fee, languages, online, workingDays, slotTimes], i) => ({
-    id: `d${i + 1}`,
-    name: name as string,
-    email: email as string,
-    specialty: specialty as string,
-    qualification: qualification as string,
-    experience: experience as number,
-    fee: fee as number,
-    languages: languages as string,
-    online: online as boolean,
-    bio: `${name} is a ${specialty} doctor with ${experience} years of experience serving families across Bidhannagar. (Demo profile)`,
-    workingDays: workingDays as number[],
-    slotTimes: slotTimes as string[],
-    lastVerified: d(i + 3),
-  }));
+    [
+      "Dr. Ritika Sen",
+      "doctor@demo.com",
+      "General Physician",
+      "MBBS, MD (Medicine)",
+      12,
+      400,
+      "Bengali, English, Hindi",
+      true,
+      [1, 2, 3, 4, 5, 6],
+      [...morning, ...evening],
+    ],
+    [
+      "Dr. Sayan Mukherjee",
+      "sayan@demo.local",
+      "General Physician",
+      "MBBS",
+      6,
+      300,
+      "Bengali, Hindi",
+      false,
+      [0, 1, 3, 5],
+      evening,
+    ],
+    [
+      "Dr. Moumita Ghosh",
+      "moumita@demo.local",
+      "Pediatrics",
+      "MBBS, DCH",
+      10,
+      500,
+      "Bengali, English",
+      true,
+      [1, 2, 4, 6],
+      morning,
+    ],
+    [
+      "Dr. Abhishek Dutta",
+      "abhishek@demo.local",
+      "Pediatrics",
+      "MBBS, MD (Pediatrics)",
+      15,
+      600,
+      "Bengali, English",
+      false,
+      [2, 3, 5],
+      evening,
+    ],
+    [
+      "Dr. Payel Banerjee",
+      "payel@demo.local",
+      "Gynecology",
+      "MBBS, MS (O&G)",
+      14,
+      700,
+      "Bengali, English, Hindi",
+      true,
+      [1, 3, 5],
+      morning,
+    ],
+    [
+      "Dr. Shreya Halder",
+      "shreya@demo.local",
+      "Gynecology",
+      "MBBS, DGO",
+      8,
+      500,
+      "Bengali",
+      false,
+      [2, 4, 6],
+      evening,
+    ],
+    [
+      "Dr. Indranil Saha",
+      "indranil@demo.local",
+      "Cardiology",
+      "MBBS, MD, DM (Cardiology)",
+      20,
+      1000,
+      "Bengali, English",
+      true,
+      [1, 4],
+      morning,
+    ],
+    [
+      "Dr. Nabanita Roy",
+      "nabanita@demo.local",
+      "Dermatology",
+      "MBBS, MD (Dermatology)",
+      9,
+      600,
+      "Bengali, English, Hindi",
+      false,
+      [3, 6],
+      [...morning.slice(0, 3), ...evening.slice(0, 3)],
+    ],
+    [
+      "Dr. Rajib Paul",
+      "rajib@demo.local",
+      "Orthopedics",
+      "MBBS, MS (Ortho)",
+      18,
+      800,
+      "Bengali, Hindi",
+      true,
+      [1, 2, 5],
+      evening,
+    ],
+    [
+      "Dr. Sohini Kar",
+      "sohini@demo.local",
+      "Dermatology",
+      "MBBS, DVD",
+      5,
+      400,
+      "Bengali, English",
+      false,
+      [0, 2, 4],
+      morning,
+    ],
+  ].map(
+    (
+      [
+        name,
+        email,
+        specialty,
+        qualification,
+        experience,
+        fee,
+        languages,
+        online,
+        workingDays,
+        slotTimes,
+      ],
+      i,
+    ) => ({
+      id: `d${i + 1}`,
+      name: name as string,
+      email: email as string,
+      specialty: specialty as string,
+      qualification: qualification as string,
+      experience: experience as number,
+      fee: fee as number,
+      languages: languages as string,
+      online: online as boolean,
+      bio: `${name} is a ${specialty} doctor with ${experience} years of experience serving families across Bidhannagar. (Demo profile)`,
+      workingDays: workingDays as number[],
+      slotTimes: slotTimes as string[],
+      lastVerified: d(i + 3),
+    }),
+  );
 
   // Book a few seeded slots on the next working days for each doctor.
   const appointments: Appointment[] = [];
-  const patients = ["Anita Das", "Ramen Pal", "Sudipta Roy", "Moumi Saha", "Kunal Bose", "Joya Sen", "Prabir Kar", "Laboni Dey", "Tuhin Nandi", "Rupa Ghosh"];
-  const problems = ["Fever and cough for 3 days", "Follow-up on blood pressure", "Skin rash", "Child vaccination query", "Knee pain", "Routine check-up"];
-  const statuses: Appointment["status"][] = ["Confirmed", "Pending", "Confirmed", "Completed", "Pending", "Cancelled"];
+  const patients = [
+    "Anita Das",
+    "Ramen Pal",
+    "Sudipta Roy",
+    "Moumi Saha",
+    "Kunal Bose",
+    "Joya Sen",
+    "Prabir Kar",
+    "Laboni Dey",
+    "Tuhin Nandi",
+    "Rupa Ghosh",
+  ];
+  const problems = [
+    "Fever and cough for 3 days",
+    "Follow-up on blood pressure",
+    "Skin rash",
+    "Child vaccination query",
+    "Knee pain",
+    "Routine check-up",
+  ];
+  const statuses: Appointment["status"][] = [
+    "Confirmed",
+    "Pending",
+    "Confirmed",
+    "Completed",
+    "Pending",
+    "Cancelled",
+  ];
   let k = 0;
   for (const doc of doctors.slice(0, 6)) {
-    for (let off = 0; off < 7 && appointments.filter((a) => a.doctorId === doc.id).length < (doc.id === "d1" ? 4 : 1); off++) {
+    for (
+      let off = 0;
+      off < 7 &&
+      appointments.filter((a) => a.doctorId === doc.id).length < (doc.id === "d1" ? 4 : 1);
+      off++
+    ) {
       const day = addDays(now, off);
       if (!doc.workingDays.includes(day.getDay())) continue;
       const time = doc.slotTimes[(k * 2) % doc.slotTimes.length] ?? doc.slotTimes[0] ?? "10:00";
@@ -142,7 +352,33 @@ export function buildSeed(now = new Date()): DB {
     }
   }
 
-  const first = ["Arpita", "Subham", "Rimpa", "Sourav", "Tania", "Biplab", "Sumana", "Rohit", "Puja", "Ankan", "Moumita", "Dipankar", "Sreeja", "Arnab", "Payel", "Sagnik", "Rituparna", "Tanmoy", "Debolina", "Joydeep", "Shilpi", "Abir", "Nandini", "Koushik", "Madhuri"];
+  const first = [
+    "Arpita",
+    "Subham",
+    "Rimpa",
+    "Sourav",
+    "Tania",
+    "Biplab",
+    "Sumana",
+    "Rohit",
+    "Puja",
+    "Ankan",
+    "Moumita",
+    "Dipankar",
+    "Sreeja",
+    "Arnab",
+    "Payel",
+    "Sagnik",
+    "Rituparna",
+    "Tanmoy",
+    "Debolina",
+    "Joydeep",
+    "Shilpi",
+    "Abir",
+    "Nandini",
+    "Koushik",
+    "Madhuri",
+  ];
   const last = ["Basu", "Mitra", "Ghosh", "Sarkar", "Das", "Pal", "Roy", "Dutta", "Saha", "Nag"];
   const groups = ["O+", "B+", "A+", "AB+", "O-", "B-", "A-", "AB-"] as const;
   const donors: Donor[] = first.map((f, i) => ({
@@ -153,7 +389,8 @@ export function buildSeed(now = new Date()): DB {
     ward: ((i * 7) % 41) + 1,
     area: AREAS[i % AREAS.length] ?? "Salt Lake",
     phone: phone(600 + i),
-    lastDonation: i % 4 === 1 ? iso(subMonths(now, 1)) : i % 5 === 0 ? null : iso(subMonths(now, 4 + (i % 6))),
+    lastDonation:
+      i % 4 === 1 ? iso(subMonths(now, 1)) : i % 5 === 0 ? null : iso(subMonths(now, 4 + (i % 6))),
     willing: i % 7 !== 6,
     consent: true,
     createdAt: d(i),
@@ -179,7 +416,15 @@ export function buildSeed(now = new Date()): DB {
     hours: hours as string,
   }));
 
-  const post = (i: number, title: string, category: BlogCategory, cover: string, excerpt: string, content: string, author: string): Post => ({
+  const post = (
+    i: number,
+    title: string,
+    category: BlogCategory,
+    cover: string,
+    excerpt: string,
+    content: string,
+    author: string,
+  ): Post => ({
     id: `p${i}`,
     title,
     category,
@@ -192,34 +437,143 @@ export function buildSeed(now = new Date()): DB {
   });
 
   const posts: Post[] = [
-    post(1, "Eating well on a Bengali plate", "Nutrition", "/images/blog-nutrition.jpg", "Simple changes to rice, dal and fish meals that keep the whole family healthy.",
-      "<p>The traditional Bengali meal is already close to balanced. A few small changes make it even better.</p><h2>Half the plate, vegetables</h2><p>Fill half your plate with shaak, seasonal sabji and salad. Keep rice to a quarter.</p><ul><li>Choose small fish like mourola for calcium.</li><li>Use less oil when making jhol.</li><li>Have fruit instead of sweets after lunch.</li></ul><p>Drink plenty of water, especially in summer.</p>", "Dr. Ritika Sen"),
-    post(2, "Dengue season: what every household should do", "Seasonal Diseases", "/images/blog-monsoon.jpg", "Stagnant water, mosquito nets and warning signs to watch for during the monsoon.",
-      "<p>Dengue cases rise across Bidhannagar every monsoon. Most can be prevented at home.</p><h2>Stop mosquitoes breeding</h2><ul><li>Empty flower pot trays, coolers and buckets every week.</li><li>Cover water tanks.</li><li>Use nets and repellent, especially at dawn and dusk.</li></ul><h2>When to see a doctor</h2><p>High fever, severe body ache, vomiting or bleeding gums need a doctor the same day. Do not take painkillers other than paracetamol without advice.</p>", "Health Desk"),
-    post(3, "First aid for cuts, burns and falls", "First Aid", "/images/blog-firstaid.jpg", "What to do in the first five minutes, before help arrives.",
-      "<p>Quick action in the first few minutes makes a big difference.</p><h2>Cuts</h2><p>Press firmly with a clean cloth for 10 minutes. Raise the hand or leg if possible.</p><h2>Burns</h2><p>Cool under running tap water for 20 minutes. Never apply toothpaste or ice.</p><h2>Falls</h2><p>If an older person falls and cannot get up, keep them warm and call for an ambulance. Do not lift them alone.</p>", "Volunteer Team"),
-    post(4, "Looking after your mind", "Mental Health", "/images/blog-mental.jpg", "Stress, sleep and talking to someone: small steps that help.",
-      "<p>Feeling low or anxious is common, and it is okay to ask for help.</p><ul><li>Keep a regular sleep time.</li><li>Walk for 20 minutes every day.</li><li>Talk to a friend or family member each week.</li></ul><p>If sad feelings last more than two weeks, speak to a doctor. Our 24x7 helpline can connect you.</p>", "Dr. Ritika Sen"),
-    post(5, "Healthy pregnancy: the first three months", "Women's Health", "/images/blog-women.jpg", "Check-ups, folic acid and danger signs in early pregnancy.",
-      "<p>The first trimester is when the baby's organs form. Good care now matters.</p><h2>Do</h2><ul><li>Register with a doctor or health centre early.</li><li>Take folic acid and iron tablets as advised.</li><li>Eat small meals often if you feel sick.</li></ul><h2>Get help at once if</h2><p>You have heavy bleeding, severe stomach pain or high fever.</p>", "Dr. Payel Banerjee"),
-    post(6, "Staying active after sixty", "Senior Care", "/images/blog-senior.jpg", "Gentle exercise, medicines and fall-proofing the home for older family members.",
-      "<p>Regular movement keeps joints, heart and mood healthy at any age.</p><ul><li>Morning walks in the park, with a friend or grandchild.</li><li>Keep a weekly pill box to avoid missed doses.</li><li>Add grab bars in the bathroom and night lights in corridors.</li></ul><p>Ask your ward volunteer about free blood pressure camps.</p>", "Health Desk"),
+    post(
+      1,
+      "Eating well on a Bengali plate",
+      "Nutrition",
+      "/images/blog-nutrition.jpg",
+      "Simple changes to rice, dal and fish meals that keep the whole family healthy.",
+      "<p>The traditional Bengali meal is already close to balanced. A few small changes make it even better.</p><h2>Half the plate, vegetables</h2><p>Fill half your plate with shaak, seasonal sabji and salad. Keep rice to a quarter.</p><ul><li>Choose small fish like mourola for calcium.</li><li>Use less oil when making jhol.</li><li>Have fruit instead of sweets after lunch.</li></ul><p>Drink plenty of water, especially in summer.</p>",
+      "Dr. Ritika Sen",
+    ),
+    post(
+      2,
+      "Dengue season: what every household should do",
+      "Seasonal Diseases",
+      "/images/blog-monsoon.jpg",
+      "Stagnant water, mosquito nets and warning signs to watch for during the monsoon.",
+      "<p>Dengue cases rise across Bidhannagar every monsoon. Most can be prevented at home.</p><h2>Stop mosquitoes breeding</h2><ul><li>Empty flower pot trays, coolers and buckets every week.</li><li>Cover water tanks.</li><li>Use nets and repellent, especially at dawn and dusk.</li></ul><h2>When to see a doctor</h2><p>High fever, severe body ache, vomiting or bleeding gums need a doctor the same day. Do not take painkillers other than paracetamol without advice.</p>",
+      "Health Desk",
+    ),
+    post(
+      3,
+      "First aid for cuts, burns and falls",
+      "First Aid",
+      "/images/blog-firstaid.jpg",
+      "What to do in the first five minutes, before help arrives.",
+      "<p>Quick action in the first few minutes makes a big difference.</p><h2>Cuts</h2><p>Press firmly with a clean cloth for 10 minutes. Raise the hand or leg if possible.</p><h2>Burns</h2><p>Cool under running tap water for 20 minutes. Never apply toothpaste or ice.</p><h2>Falls</h2><p>If an older person falls and cannot get up, keep them warm and call for an ambulance. Do not lift them alone.</p>",
+      "Volunteer Team",
+    ),
+    post(
+      4,
+      "Looking after your mind",
+      "Mental Health",
+      "/images/blog-mental.jpg",
+      "Stress, sleep and talking to someone: small steps that help.",
+      "<p>Feeling low or anxious is common, and it is okay to ask for help.</p><ul><li>Keep a regular sleep time.</li><li>Walk for 20 minutes every day.</li><li>Talk to a friend or family member each week.</li></ul><p>If sad feelings last more than two weeks, speak to a doctor. Our 24x7 helpline can connect you.</p>",
+      "Dr. Ritika Sen",
+    ),
+    post(
+      5,
+      "Healthy pregnancy: the first three months",
+      "Women's Health",
+      "/images/blog-women.jpg",
+      "Check-ups, folic acid and danger signs in early pregnancy.",
+      "<p>The first trimester is when the baby's organs form. Good care now matters.</p><h2>Do</h2><ul><li>Register with a doctor or health centre early.</li><li>Take folic acid and iron tablets as advised.</li><li>Eat small meals often if you feel sick.</li></ul><h2>Get help at once if</h2><p>You have heavy bleeding, severe stomach pain or high fever.</p>",
+      "Dr. Payel Banerjee",
+    ),
+    post(
+      6,
+      "Staying active after sixty",
+      "Senior Care",
+      "/images/blog-senior.jpg",
+      "Gentle exercise, medicines and fall-proofing the home for older family members.",
+      "<p>Regular movement keeps joints, heart and mood healthy at any age.</p><ul><li>Morning walks in the park, with a friend or grandchild.</li><li>Keep a weekly pill box to avoid missed doses.</li><li>Add grab bars in the bathroom and night lights in corridors.</li></ul><p>Ask your ward volunteer about free blood pressure camps.</p>",
+      "Health Desk",
+    ),
   ];
 
   const tickets = [
-    { id: "T-1001", name: "Shampa Roy", phone: phone(800), issue: "Ambulance" as const, ward: 21, note: "Need oxygen ambulance for father", status: "New" as const, createdAt: d(0) },
-    { id: "T-1002", name: "Asit Kumar", phone: phone(801), issue: "Blood" as const, ward: 7, note: "B- blood needed tomorrow", status: "In-progress" as const, createdAt: d(1) },
-    { id: "T-1003", name: "Lipika Das", phone: phone(802), issue: "Hospital" as const, ward: 3, note: "Which hospital has emergency at night?", status: "Resolved" as const, createdAt: d(3) },
+    {
+      id: "T-1001",
+      name: "Shampa Roy",
+      phone: phone(800),
+      issue: "Ambulance" as const,
+      ward: 21,
+      note: "Need oxygen ambulance for father",
+      status: "New" as const,
+      createdAt: d(0),
+    },
+    {
+      id: "T-1002",
+      name: "Asit Kumar",
+      phone: phone(801),
+      issue: "Blood" as const,
+      ward: 7,
+      note: "B- blood needed tomorrow",
+      status: "In-progress" as const,
+      createdAt: d(1),
+    },
+    {
+      id: "T-1003",
+      name: "Lipika Das",
+      phone: phone(802),
+      issue: "Hospital" as const,
+      ward: 3,
+      note: "Which hospital has emergency at night?",
+      status: "Resolved" as const,
+      createdAt: d(3),
+    },
   ];
 
   const reports = [
-    { id: "R-1", entityType: "Hospital" as const, entityId: "h3", entityName: "Sector V Multispeciality Clinic (Demo)", message: "Phone number not reachable", status: "New" as const, createdAt: d(1) },
-    { id: "R-2", entityType: "Ambulance" as const, entityId: "a4", entityName: "Kestopur Community Ambulance (Demo)", message: "They now run 24x7", status: "New" as const, createdAt: d(2) },
+    {
+      id: "R-1",
+      entityType: "Hospital" as const,
+      entityId: "h3",
+      entityName: "Sector V Multispeciality Clinic (Demo)",
+      message: "Phone number not reachable",
+      status: "New" as const,
+      createdAt: d(1),
+    },
+    {
+      id: "R-2",
+      entityType: "Ambulance" as const,
+      entityId: "a4",
+      entityName: "Kestopur Community Ambulance (Demo)",
+      message: "They now run 24x7",
+      status: "New" as const,
+      createdAt: d(2),
+    },
   ];
 
   const bloodRequests = [
-    { id: "BR-1", patientName: "Mohan Lal", phone: phone(900), group: "O+" as const, units: 2, hospital: "Bidhannagar Community Hospital (Demo)", ward: 3, urgency: "Urgent" as const, matched: 0, status: "New" as const, createdAt: d(0) },
-    { id: "BR-2", patientName: "Rina Pal", phone: phone(901), group: "B+" as const, units: 1, hospital: "Baguiati General Hospital (Demo)", ward: 21, urgency: "Normal" as const, matched: 0, status: "In-progress" as const, createdAt: d(2) },
+    {
+      id: "BR-1",
+      patientName: "Mohan Lal",
+      phone: phone(900),
+      group: "O+" as const,
+      units: 2,
+      hospital: "Bidhannagar Community Hospital (Demo)",
+      ward: 3,
+      urgency: "Urgent" as const,
+      matched: 0,
+      status: "New" as const,
+      createdAt: d(0),
+    },
+    {
+      id: "BR-2",
+      patientName: "Rina Pal",
+      phone: phone(901),
+      group: "B+" as const,
+      units: 1,
+      hospital: "Baguiati General Hospital (Demo)",
+      ward: 21,
+      urgency: "Normal" as const,
+      matched: 0,
+      status: "In-progress" as const,
+      createdAt: d(2),
+    },
   ];
 
   const chats = [
@@ -228,8 +582,16 @@ export function buildSeed(now = new Date()): DB {
       doctorId: "d1",
       patientName: "Anita Das",
       messages: [
-        { from: "patient" as const, text: "Doctor, my fever is 101 since yesterday. Should I come in?", at: new Date(now.getTime() - 3600_000).toISOString() },
-        { from: "doctor" as const, text: "Please take paracetamol and drink fluids. Book a slot for tomorrow morning.", at: new Date(now.getTime() - 3000_000).toISOString() },
+        {
+          from: "patient" as const,
+          text: "Doctor, my fever is 101 since yesterday. Should I come in?",
+          at: new Date(now.getTime() - 3600_000).toISOString(),
+        },
+        {
+          from: "doctor" as const,
+          text: "Please take paracetamol and drink fluids. Book a slot for tomorrow morning.",
+          at: new Date(now.getTime() - 3000_000).toISOString(),
+        },
       ],
       updatedAt: new Date(now.getTime() - 3000_000).toISOString(),
     },
@@ -237,7 +599,13 @@ export function buildSeed(now = new Date()): DB {
 
   const db: DB = {
     version: 1,
-    settings: { siteName: "Praner Pashe", helpline: "90000 00000", whatsapp: "90000 00099", wardCount: 41, defaultLang: "en" },
+    settings: {
+      siteName: "Praner Pashe",
+      helpline: "90000 00000",
+      whatsapp: "90000 00099",
+      wardCount: 41,
+      defaultLang: "en",
+    },
     wards,
     hospitals,
     bloodBanks,

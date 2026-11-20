@@ -12,7 +12,9 @@ export function SiteFooter() {
       <div className="container-page grid gap-8 py-10 md:grid-cols-[1.2fr_2fr]">
         <div className="space-y-3">
           <Logo />
-          <p className="text-sm text-muted-foreground">{t("A community health-support platform for Bidhannagar.")}</p>
+          <p className="text-sm text-muted-foreground">
+            {t("A community health-support platform for Bidhannagar.")}
+          </p>
           <p className="text-sm">
             {t("24x7 Helpline")}: <span className="font-bold">{db.settings.helpline}</span>
           </p>
@@ -23,10 +25,18 @@ export function SiteFooter() {
               {t(n.label)}
             </Link>
           ))}
-          <Link to="/privacy" className="py-1 text-muted-foreground hover:text-foreground">{t("Privacy")}</Link>
-          <Link to="/terms" className="py-1 text-muted-foreground hover:text-foreground">{t("Terms")}</Link>
-          <Link to="/doctor-panel" className="py-1 text-muted-foreground hover:text-foreground">{t("Doctor Panel")}</Link>
-          <Link to="/admin" className="py-1 text-muted-foreground hover:text-foreground">{t("Admin Dashboard")}</Link>
+          <Link to="/privacy" className="py-1 text-muted-foreground hover:text-foreground">
+            {t("Privacy")}
+          </Link>
+          <Link to="/terms" className="py-1 text-muted-foreground hover:text-foreground">
+            {t("Terms")}
+          </Link>
+          <Link to="/doctor-panel" className="py-1 text-muted-foreground hover:text-foreground">
+            {t("Doctor Panel")}
+          </Link>
+          <Link to="/admin" className="py-1 text-muted-foreground hover:text-foreground">
+            {t("Admin Dashboard")}
+          </Link>
         </div>
       </div>
       <div className="border-t">

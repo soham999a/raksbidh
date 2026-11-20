@@ -14,7 +14,12 @@ export const BLOG_CATEGORIES = [
 ] as const;
 export type BlogCategory = (typeof BLOG_CATEGORIES)[number];
 
-export const KEY_ROLES = ["Ward Coordinator", "Volunteer", "Councillor Office", "Health Worker"] as const;
+export const KEY_ROLES = [
+  "Ward Coordinator",
+  "Volunteer",
+  "Councillor Office",
+  "Health Worker",
+] as const;
 
 export type AppointmentStatus = "Pending" | "Confirmed" | "Completed" | "Cancelled";
 export type TicketStatus = "New" | "In-progress" | "Resolved";
