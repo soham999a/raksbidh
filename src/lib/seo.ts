@@ -1,5 +1,5 @@
 export function seo(title: string, description: string, image?: string) {
-  const full = `${title} | Praner Pashe Bidhannagar`;
+  const full = `${title} | Jotno Bidhannagar`;
   const meta: Array<Record<string, string>> = [
     { title: full },
     { name: "description", content: description },

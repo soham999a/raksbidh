@@ -8,7 +8,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Praner Pashe design system: saffron care, white space, green for verified, red for emergency. */
+/* Jotno design system: saffron care, white space, green for verified, red for emergency. */
 
 @theme inline {
   --font-sans: "Hind Siliguri", system-ui, sans-serif;

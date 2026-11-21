@@ -43,7 +43,7 @@ export function Logo() {
       </span>
       <span className="leading-tight">
         <span className="block font-display text-lg font-bold">{db.settings.siteName}</span>
-        <span className="block text-xs text-muted-foreground">প্রাণের পাশে · Bidhannagar</span>
+        <span className="block text-xs text-muted-foreground">যত্ন · Bidhannagar</span>
       </span>
     </Link>
   );

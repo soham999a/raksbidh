@@ -23,7 +23,7 @@ export const Route = createFileRoute("/helpline")({
   head: () =>
     seo(
       "24x7 Helpline",
-      "Call or WhatsApp the Praner Pashe 24x7 helpline, or request a callback for blood, ambulance or hospital help.",
+      "Call or WhatsApp the Jotno 24x7 helpline, or request a callback for blood, ambulance or hospital help.",
     ),
   component: Helpline,
 });
@@ -85,7 +85,7 @@ function Helpline() {
           />
           <WhatsAppButton
             phone={db.settings.whatsapp}
-            text="Hello Praner Pashe, I need help."
+            text="Hello Jotno, I need help."
             size="xl"
             className="w-full"
           />

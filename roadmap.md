@@ -1,4 +1,4 @@
-# Praner Pashe roadmap
+# Jotno roadmap
 
 - [x] Data store (per-browser, seeded, cross-tab live) + bilingual EN/BN
 - [x] Public pages: home, hospitals, blood banks, ambulances, doctors + booking, my booking, helpline, donors, ward stats, blood requests, delete my data, blog, key persons, privacy, terms

@@ -2,8 +2,8 @@ import { useSyncExternalStore } from "react";
 import { buildSeed } from "./seed";
 import type { DB, Role } from "./types";
 
-const KEY = "praner-pashe-db-v1";
-const SESSION_KEY = "praner-pashe-session-v1";
+const KEY = "jotno-db-v1";
+const SESSION_KEY = "jotno-session-v1";
 
 type Listener = () => void;
 
@@ -119,7 +119,7 @@ export function signOut() {
   sessionStore.write(null);
 }
 
-const langStore = createLocalStore<"en" | "bn" | null>("praner-pashe-lang-v1", () => null);
+const langStore = createLocalStore<"en" | "bn" | null>("jotno-lang-v1", () => null);
 
 export function useStoredLang() {
   return useSyncExternalStore(langStore.subscribe, langStore.read, langStore.getServer);

@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Praner Pashe | Community health help for Bidhannagar" },
+      { title: "Jotno | Community health help for Bidhannagar" },
       {
         name: "description",
         content:
-          "Demo of Praner Pashe: hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar, one tap away.",
+          "Demo of Jotno: hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar, one tap away.",
       },
       { name: "theme-color", content: "#FF9933" },
-      { property: "og:title", content: "Praner Pashe | Community health help for Bidhannagar" },
+      { property: "og:title", content: "Jotno | Community health help for Bidhannagar" },
       {
         property: "og:description",
         content:

@@ -121,7 +121,7 @@ export function buildSeed(now = new Date()): DB {
   }));
 
   const ambulances = [
-    ["Praner Pashe Ambulance Service (Demo)", "Mr. Bapi Halder", "Basic", 2, true],
+    ["Jotno Ambulance Service (Demo)", "Mr. Bapi Halder", "Basic", 2, true],
     ["Salt Lake ICU on Wheels (Demo)", "Mr. Subhajit Paul", "ICU", 6, true],
     ["Oxygen Express Baguiati (Demo)", "Mr. Raju Sheikh", "Oxygen", 21, true],
     ["Kestopur Community Ambulance (Demo)", "Mr. Tapas Mondal", "Basic", 18, false],
@@ -600,7 +600,7 @@ export function buildSeed(now = new Date()): DB {
   const db: DB = {
     version: 1,
     settings: {
-      siteName: "Praner Pashe",
+      siteName: "Jotno",
       helpline: "90000 00000",
       whatsapp: "90000 00099",
       wardCount: 41,

@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
   head: () =>
     seo(
       "Help is one tap away",
-      "Find hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar. Demo of the Praner Pashe community health platform.",
+      "Find hospitals, blood banks, ambulances, doctors and blood donors in Bidhannagar. Demo of the Jotno community health platform.",
     ),
   component: Home,
 });

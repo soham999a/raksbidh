@@ -1,4 +1,4 @@
-# Praner Pashe — Bidhannagar community health directory
+# Jotno — Bidhannagar community health directory
 
 A fast, bilingual (English / বাংলা) directory that helps people in Bidhannagar find nearby hospitals, blood banks, ambulances, doctors and blood donors. Built with React 19, TanStack Start, Tailwind CSS 4 and deployed on Vercel.
 

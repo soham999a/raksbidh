@@ -8,7 +8,7 @@ import { useDB } from "@/lib/store";
 
 export const Route = createFileRoute("/blog/$id")({
   head: () =>
-    seo("Health Article", "A practical health guide from the Praner Pashe community health blog."),
+    seo("Health Article", "A practical health guide from the Jotno community health blog."),
   component: BlogPost,
 });
 

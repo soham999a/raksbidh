@@ -14,7 +14,7 @@ export const Route = createFileRoute("/delete-my-data")({
   head: () =>
     seo(
       "Delete My Donor Data",
-      "Remove your blood donor details from Praner Pashe using your phone number and a one-time code.",
+      "Remove your blood donor details from Jotno using your phone number and a one-time code.",
     ),
   component: DeleteData,
 });

@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin")({
   head: () =>
-    seo("Admin Dashboard", "Demo admin dashboard for the Praner Pashe community health directory."),
+    seo("Admin Dashboard", "Demo admin dashboard for the Jotno community health directory."),
   component: Admin,
 });
 

@@ -14,7 +14,7 @@ import { useT } from "@/lib/i18n";
 
 const STEPS = [
   {
-    title: "Welcome to Praner Pashe",
+    title: "Welcome to Jotno",
     text: "This demo shows how Bidhannagar residents can find help fast. Everything here uses dummy data. Use the English / বাংলা switch at the top any time.",
     to: "/",
   },

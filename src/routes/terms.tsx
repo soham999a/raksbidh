@@ -5,15 +5,14 @@ import { useT } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/terms")({
-  head: () =>
-    seo("Terms of Use", "Terms for using the Praner Pashe community health directory demo."),
+  head: () => seo("Terms of Use", "Terms for using the Jotno community health directory demo."),
   component: Terms,
 });
 
 const sections = [
   {
     title: "Demo purpose",
-    body: "Praner Pashe is a community-health demonstration for Bidhannagar. All listings, doctors, donors and articles shown are sample data created for demonstration.",
+    body: "Jotno is a community-health demonstration for Bidhannagar. All listings, doctors, donors and articles shown are sample data created for demonstration.",
   },
   {
     title: "Not medical advice",

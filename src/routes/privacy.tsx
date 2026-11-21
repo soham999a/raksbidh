@@ -8,7 +8,7 @@ export const Route = createFileRoute("/privacy")({
   head: () =>
     seo(
       "Privacy Policy",
-      "How Praner Pashe handles the information you enter while using the community health directory.",
+      "How Jotno handles the information you enter while using the community health directory.",
     ),
   component: Privacy,
 });
