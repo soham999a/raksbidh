@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock3, MapPin, Users } from "lucide-react";
+import { FounderCredit } from "@/components/site/FounderCredit";
 import {
   Avatar,
   CallButton,
@@ -47,6 +48,9 @@ function KeyPersons() {
         )}
         icon={<Users />}
       />
+      <section className="container-page pt-8">
+        <FounderCredit featured />
+      </section>
       <section className="container-page py-8">
         <div className="surface mb-6 flex flex-wrap gap-3 p-5">
           <select

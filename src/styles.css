@@ -178,8 +178,8 @@
 
 @utility hero-glow {
   background:
-    radial-gradient(60rem 30rem at 0% 0%, oklch(0.95 0.06 70) 0%, transparent 60%),
-    radial-gradient(40rem 24rem at 100% 100%, oklch(0.97 0.03 150) 0%, transparent 60%),
+    radial-gradient(60rem 30rem at 0% 0%, oklch(0.94 0.09 70) 0%, transparent 62%),
+    radial-gradient(40rem 24rem at 100% 100%, oklch(0.96 0.05 70) 0%, transparent 60%),
     var(--color-background);
 }
 

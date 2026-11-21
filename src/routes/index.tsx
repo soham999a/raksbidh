@@ -13,6 +13,7 @@ import {
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FounderCredit } from "@/components/site/FounderCredit";
 import { GuidedTour } from "@/components/site/GuidedTour";
 import { fmtDate } from "@/components/site/ui-bits";
 import { useT } from "@/lib/i18n";
@@ -109,6 +110,10 @@ function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="container-page pt-8">
+        <FounderCredit />
       </section>
 
       <section className="container-page py-10">

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 import { useDB } from "@/lib/store";
+import { FounderLine } from "./FounderCredit";
 import { Logo } from "./SiteHeader";
 import { NAV } from "./nav";
 
@@ -8,7 +9,7 @@ export function SiteFooter() {
   const { t } = useT();
   const db = useDB();
   return (
-    <footer className="mt-16 border-t bg-secondary pb-28 md:pb-10">
+    <footer className="mt-16 border-t-2 border-t-primary bg-secondary pb-28 md:pb-10">
       <div className="container-page grid gap-8 py-10 md:grid-cols-[1.2fr_2fr]">
         <div className="space-y-3">
           <Logo />
@@ -18,6 +19,7 @@ export function SiteFooter() {
           <p className="text-sm">
             {t("24x7 Helpline")}: <span className="font-bold">{db.settings.helpline}</span>
           </p>
+          <FounderLine />
         </div>
         <div className="grid grid-cols-2 gap-2 text-sm sm:grid-cols-3">
           {NAV.map((n) => (

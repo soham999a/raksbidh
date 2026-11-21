@@ -39,6 +39,10 @@ export const BN: Record<string, string> = {
   "Site settings": "সাইট সেটিংস",
   "Danger zone": "বিপদ অঞ্চল",
 
+  // Founding credit
+  "Founder & Initiator": "প্রতিষ্ঠাতা ও উদ্যোক্তা",
+  "An initiative started by": "এই উদ্যোগ শুরু করেছেন",
+
   // Home
   "Verified local help, all in one place": "সব এক জায়গায় যাচাইকৃত স্থানীয় সাহায্য",
   "help is one tap away": "সাহায্য এক ট্যাপে",
