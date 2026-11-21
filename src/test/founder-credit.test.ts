@@ -13,7 +13,7 @@ describe("Founding credits", () => {
   it("keeps the co-founding member's details intact", () => {
     expect(CO_FOUNDER.name).toBe("Debapriya Ghosal");
     expect(CO_FOUNDER.designation).toBe("IT Expert, Microsoft Certified and All India Rank Holder");
-    expect(CO_FOUNDER.role).toBe("Co Founding Member");
-    expect(CO_ASSISTING_ROLE).toBe("Co Assisting Member");
+    expect(CO_FOUNDER.role).toBe("cofounder");
+    expect(CO_ASSISTING_ROLE).toBe("Co Assisting The Initiative");
   });
 });

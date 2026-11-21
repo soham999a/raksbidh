@@ -113,7 +113,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="container-page pt-8">
+      <section className="container-page space-y-3 pt-8">
         <FounderCredit />
         <CoFounderCredit role={CO_ASSISTING_ROLE} />
       </section>

@@ -48,9 +48,9 @@ function KeyPersons() {
         )}
         icon={<Users />}
       />
-      <section className="container-page pt-8">
+      <section className="container-page space-y-3 pt-8">
         <FounderCredit featured />
-        <CoFounderCredit />
+        <CoFounderCredit featured />
       </section>
       <section className="container-page py-8">
         <div className="surface mb-6 flex flex-wrap gap-3 p-5">

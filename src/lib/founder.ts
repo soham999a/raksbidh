@@ -11,8 +11,8 @@ export const FOUNDER = {
 export const CO_FOUNDER = {
   name: "Debapriya Ghosal",
   designation: "IT Expert, Microsoft Certified and All India Rank Holder",
-  role: "Co Founding Member",
+  role: "cofounder",
 } as const;
 
 /** Homepage role label for the same co-founder. */
-export const CO_ASSISTING_ROLE = "Co Assisting Member" as const;
+export const CO_ASSISTING_ROLE = "Co Assisting The Initiative" as const;
