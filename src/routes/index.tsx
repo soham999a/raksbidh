@@ -13,9 +13,10 @@ import {
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FounderCredit } from "@/components/site/FounderCredit";
+import { CoFounderCredit, FounderCredit } from "@/components/site/FounderCredit";
 import { GuidedTour } from "@/components/site/GuidedTour";
 import { fmtDate } from "@/components/site/ui-bits";
+import { CO_ASSISTING_ROLE } from "@/lib/founder";
 import { useT } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { useDB } from "@/lib/store";
@@ -114,6 +115,7 @@ function Home() {
 
       <section className="container-page pt-8">
         <FounderCredit />
+        <CoFounderCredit role={CO_ASSISTING_ROLE} />
       </section>
 
       <section className="container-page py-10">

@@ -6,3 +6,13 @@ export const FOUNDER = {
   designationEn:
     "Member & Spokesperson, West Bengal Pradesh Executive Committee, Bharatiya Janata Party",
 } as const;
+
+/** Co-founding member credit shown on the Key Persons page. */
+export const CO_FOUNDER = {
+  name: "Debapriya Ghosal",
+  designation: "IT Expert, Microsoft Certified and All India Rank Holder",
+  role: "Co Founding Member",
+} as const;
+
+/** Homepage role label for the same co-founder. */
+export const CO_ASSISTING_ROLE = "Co Assisting Member" as const;

@@ -1,6 +1,6 @@
 import { UserRound } from "lucide-react";
 
-import { FOUNDER } from "@/lib/founder";
+import { CO_FOUNDER, FOUNDER } from "@/lib/founder";
 import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -35,6 +35,22 @@ export function FounderCredit({ featured = false }: { featured?: boolean }) {
             {lang === "bn" ? FOUNDER.designation : FOUNDER.designationEn}
           </p>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/** Co-founder credit, shown directly under the founder on Key Persons and home. */
+export function CoFounderCredit({ role = CO_FOUNDER.role }: { role?: string }) {
+  return (
+    <div className="surface mt-3 flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-5">
+      <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary-soft text-primary-strong [&_svg]:size-6">
+        <UserRound />
+      </span>
+      <div className="min-w-0">
+        <p className="text-xs font-bold uppercase tracking-wide text-primary-strong">{role}</p>
+        <p className="mt-1 font-display text-xl font-bold">{CO_FOUNDER.name}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{CO_FOUNDER.designation}</p>
       </div>
     </div>
   );
